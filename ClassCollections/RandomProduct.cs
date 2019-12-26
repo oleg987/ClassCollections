@@ -8,17 +8,21 @@ using System.Threading.Tasks;
 namespace ClassCollections
 {
     static class RandomProduct
-    {
-        static int rand = 1;
-        public static Product GetRandomProduct()
-        {            
-            Random random = new Random(rand++);
+    {    
+        public static Product[] GetRandomProducts(int count)
+        {
+            Random random = new Random();
+
+            Product[] products = new Product[count];
 
             string[] titles = { "Milk", "Apple", "Meat", "Rice", "Potato" };
 
-            Product product = new Product(titles[random.Next(titles.Length)], Math.Round(random.NextDouble() * 100 + 1, 2), DateTime.Today.AddDays(random.Next(1, 60)));            
+            for (int i = 0; i < count; i++)
+            {
+                products[i] = new Product(titles[random.Next(titles.Length)], Math.Round(random.NextDouble() * 100 + 1, 2), DateTime.Today.AddDays(random.Next(1, 60)));
+            }
 
-            return product;
+            return products;
         }
     }
 }

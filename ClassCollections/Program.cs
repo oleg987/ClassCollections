@@ -14,138 +14,146 @@ namespace ClassCollections
             int[] nums = { -8, 13, 46, -269, 514 };
             string[] str = { "hello", "some", "string" };
             double num = 12.4;
+            Product product = new Product("Fish", 15.24, DateTime.Today.AddDays(10));
 
-            //Product[] products = new Product[500];
+            Product[] products = RandomProduct.GetRandomProducts(500);
 
-            //for (int i = 0; i < products.Length; i++)
-            //{
-            //    products[i] = RandomProduct.GetRandomProduct();
-            //}
+            foreach (Product item in products)
+            {
+                Console.WriteLine(item);
+            }
 
-            //foreach (Product item in products)
-            //{
-            //    Console.WriteLine(item);
-            //}
-
-            //Console.ReadLine();
+            Console.ReadLine();
 
             // ArrayList
 
-            // Конструкторы
-
-            ArrayList arrayList = new ArrayList();
-
-            ArrayList arrayList1 = new ArrayList(30);
-
-            ArrayList arrayList2 = new ArrayList(nums);
+            ArrayList arrLst = new ArrayList();
 
             // Добавление элементов
 
             // [i]  
 
-            // Add
+            // Add 
 
-            arrayList.Add(1);
-            arrayList.Add("str");
-            arrayList.Add(num);
-            arrayList[1] = 18;
-            arrayList.Add(1);
-            arrayList.Add("str");
-            arrayList.Add(num);
+            arrLst.Add(12);
+            arrLst.Add(5.2);
+            arrLst.Add("str");
+            arrLst.Add(product);
 
+            //Console.WriteLine(arrLst[1]);
 
-
-            // AddRange
-
-            arrayList.AddRange(str);
-
-            
-
-            // Count VS Capacity
-
-            Console.WriteLine(arrayList.Capacity);
-
-            Console.WriteLine(arrayList.Count);
-
-            // Insert
-
-            arrayList.Insert(5, null);
-
-
-
-            // IndexOf, LastIndexOf
-
-            arrayList.IndexOf(1);
-
-            // Contains
-
-            arrayList.Contains("str");
-            Console.WriteLine(arrayList.Contains("str"));
-
-            // Clear
-
-            arrayList2.Clear();
-
-            // Remove
-
-            arrayList.Remove(1);            
-
-            // RemoveAt
-
-            arrayList.RemoveAt(6);
-
-            Console.WriteLine(arrayList);            
-
-            // RemoveRange
-
-            arrayList.RemoveRange(3, arrayList.Count - 3);
-
-            //foreach (var item in arrayList)
+            //foreach (var item in arrLst)
             //{
             //    Console.WriteLine(item);
             //}
 
+            // AddRange
+
+            arrLst.AddRange(nums);
+
+
+
+            // Count VS Capacity
+            arrLst.Add(3);
+
+            Console.WriteLine(arrLst.Count);
+            Console.WriteLine(arrLst.Capacity);
+
+            // Insert
+
+            arrLst.Insert(6, "Insert");
+            arrLst.Insert(9, "Insert");
+            foreach (var item in arrLst)
+            {
+                Console.WriteLine(item);
+            }
+
+            // IndexOf, LastIndexOf
+
+            Console.WriteLine(arrLst.LastIndexOf("Insert52"));
+
+            // Contains
+
+            Console.WriteLine(arrLst.Contains(5.26));
+
+            // Clear
+
+            arrLst.Clear();
+
+            foreach (var item in arrLst)
+            {
+                Console.WriteLine(item);
+            }
+
+            arrLst.Add(1);
+            arrLst.Add(2);
+            arrLst.Add(1);
+
+            Console.WriteLine($"{arrLst.Count} / {arrLst.Capacity}");
+
+            // Remove 
+
+            //arrLst.Remove(1);
+
+            // RemoveAt  
+
+            //arrLst.RemoveAt(1);
+
+            // RemoveRange            
+
             // ToArray
 
-            object[] arr = new object[5];
+            object[] objArr = new object[arrLst.Count];
 
+            objArr = arrLst.ToArray();
 
-            // TrimToSize            
+            // TrimToSize
 
+            arrLst.TrimToSize();
+            arrLst.Add(15);
 
-            ArrayList list = new ArrayList();
-            list.Add(2);
-            list.AddRange(new int[] { 1, 2, 6, 1, 9, 1 });
-
-            foreach (var item in list)
-            {
-                Console.WriteLine(item);
-            }            
-
-            while (list.Contains(1))
-            {
-                list.Remove(1);
-            }
-
-            Console.WriteLine();
-
-            foreach (var item in list)
+            foreach (var item in objArr)
             {
                 Console.WriteLine(item);
             }
+            arrLst.TrimToSize();
 
-            Product[] arr1 = new Product[5];
+            Console.WriteLine($"{arrLst.Count} / {arrLst.Capacity}");
 
-            List<Product> products1 = new List<Product>();
+            //List<Product> products = new List<Product>();
 
-            List<List<Product>> listInt = new List<List<Product>>();       
+            //products.Add(product);
+            //products.AddRange(RandomProduct.GetRandomProducts(10));
 
 
 
-            Dictionary<int, Product> capitals = new Dictionary<int, Product>();
 
-            Product[,] products = new Product[12, 31];
-            
+            //List<List<Product>> pr = new List<List<Product>>();
+
+
+
+
+            //pr.Add(products);
+            ////pr.AddRange(products);
+
+            //foreach (var item in products)
+            //{
+            //    Console.WriteLine(item.GetPrice());
+            //}
+
+            //Product[] productsArr = new Product[products.Count];
+            //productsArr = products.ToArray<Product>();
+
+            //Dictionary<string, string> dictionary = new Dictionary<string, string>();
+            //dictionary.Add("Ukraine", "Kyiv");
+            //dictionary.Add("Germany", "Berlin");
+
+            //dictionary["Germany"] = "Munhen";
+
+            //foreach (var item in dictionary)
+            //{
+            //    Console.WriteLine(item.Key + "\t" + item.Value);
+            //}
         }
     }
 }

@@ -27,9 +27,17 @@ namespace ClassCollections
             Expired = expired;
         }
 
+        public double GetPrice()
+        {
+            return Price * 1.2;
+        }
         public override string ToString()
         {
-            return $"ID: {id}\tTitle: {title}\tPrice: {price}\tExpired: {expired.ToShortDateString()}";
+            return 
+                $"ID: {id}\t" +
+                $"Title: {title}\t" +
+                $"Price: {price}\t" +
+                $"Expired: {expired.ToShortDateString()}";
         }
     }
 }
